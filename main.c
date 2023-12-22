@@ -219,7 +219,7 @@ void process_key_press(char key_pressed)
     switch(key_pressed)
     {
         /* Increase duty cycle */
-        case 's':
+        case 'w':
             compare0_value += COMPARE_VALUE_DELTA;
             compare1_value += COMPARE_VALUE_DELTA;
             if( compare0_value > period )
@@ -228,7 +228,7 @@ void process_key_press(char key_pressed)
                 compare1_value = period;
             break;
         /* Decrease duty cycle */
-        case 'w':
+        case 's':
             compare0_value -= COMPARE_VALUE_DELTA;
             compare1_value -= COMPARE_VALUE_DELTA;
             if( compare0_value < 0 )
@@ -295,8 +295,8 @@ void print_instructions(void)
     printf("====================================================\r\n"
            "Instructions:\r\n"
            "====================================================\r\n"
-           "Press 's' : To increase the duty cycle\r\n"
-           "Press 'w' : To decrease the duty cycle\r\n"
+           "Press 'w' : To increase the duty cycle\r\n"
+           "Press 's' : To decrease the duty cycle\r\n"
            "Press 'a' : To shift waveform towards left\r\n"
            "Press 'd' : To shift waveform towards right\r\n"
            "====================================================\r\n");
