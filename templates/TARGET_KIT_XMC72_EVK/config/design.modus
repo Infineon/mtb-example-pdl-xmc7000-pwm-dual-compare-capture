@@ -402,11 +402,11 @@
                 <Block location="srss[0].clock[0].eco[0]">
                     <Personality template="eco" version="3.0">
                         <Param id="ecoFrequency" value="16.0000"/>
-                        <Param id="accuracyPpm" value="0"/>
+                        <Param id="accuracyPpm" value="20"/>
                         <Param id="driveLevel" value="100"/>
-                        <Param id="esr" value="50"/>
-                        <Param id="c0" value="0"/>
-                        <Param id="cLoad" value="18"/>
+                        <Param id="esr" value="150"/>
+                        <Param id="c0" value="7"/>
+                        <Param id="cLoad" value="10"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].fastclk[0]">
@@ -474,7 +474,7 @@
                 </Block>
                 <Block location="srss[0].clock[0].hfclk[7]">
                     <Personality template="hfclk" version="3.0">
-                        <Param id="sourceClockNumber" value="6"/>
+                        <Param id="sourceClockNumber" value="5"/>
                         <Param id="divider" value="1"/>
                     </Personality>
                 </Block>
@@ -495,7 +495,7 @@
                 </Block>
                 <Block location="srss[0].clock[0].lfclk[0]">
                     <Personality template="lfclk" version="3.0">
-                        <Param id="sourceClock" value="ilo0"/>
+                        <Param id="sourceClock" value="wco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].memclk[0]">
@@ -505,32 +505,32 @@
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[0]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[1]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[2]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[3]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[4]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="eco"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[5]">
                     <Personality template="pathmux" version="3.0">
-                        <Param id="sourceClock" value="imo"/>
+                        <Param id="sourceClock" value="ilo0"/>
                     </Personality>
                 </Block>
                 <Block location="srss[0].clock[0].pathmux[6]">
@@ -596,6 +596,7 @@
                         <Param id="transistorEnable" value="false"/>
                         <Param id="vadjMv" value="1100"/>
                         <Param id="idlePwrMode" value="CY_CFG_PWR_MODE_DEEPSLEEP"/>
+                        <Param id="deepsleepLatency" value="0"/>
                         <Param id="vddaMv" value="3300"/>
                         <Param id="vdddMv" value="3300"/>
                         <Param id="vddio0Mv" value="3300"/>
@@ -611,7 +612,12 @@
                         <Param id="SwapUnderflowOverflow" value="false"/>
                         <Param id="RunMode" value="CY_TCPWM_PWM_CONTINUOUS"/>
                         <Param id="DeadClocks" value="0"/>
+                        <Param id="DeadClocks_compl" value="0"/>
+                        <Param id="DeadClocksBuff" value="0"/>
+                        <Param id="DeadClocksBuff_compl" value="0"/>
                         <Param id="ImmediateKill" value="false"/>
+                        <Param id="kill_line_polarity" value="CY_TCPWM_LINEOUT_AND_LINECMPOUT_IS_LOW"/>
+                        <Param id="gf_depth" value="CY_GLITCH_FILTER_DEPTH_SUPPORT_VALUE_0"/>
                         <Param id="EnablePeriodSwap" value="false"/>
                         <Param id="Period0" value="2000"/>
                         <Param id="Period1" value="32768"/>
@@ -622,6 +628,16 @@
                         <Param id="EnableCompare1Swap" value="true"/>
                         <Param id="Compare2" value="1000"/>
                         <Param id="Compare3" value="0"/>
+                        <Param id="Period_Dithering" value="128"/>
+                        <Param id="Duty_Dithering" value="128"/>
+                        <Param id="limiter" value="CY_TCPWM_DITHERING_LIMITER_7"/>
+                        <Param id="enable_hrpwm" value="false"/>
+                        <Param id="hrpwm_input_clock" value="CY_TCPWM_HRPWM_FREQ_80MHZ_OR_100MHZ"/>
+                        <Param id="reload_line_sel" value="false"/>
+                        <Param id="line_out_source" value="CY_TCPWM_OUTPUT_PWM_SIGNAL"/>
+                        <Param id="linecompl_out_source" value="CY_TCPWM_OUTPUT_INVERTED_PWM_SIGNAL"/>
+                        <Param id="buff_line_out_source" value="CY_TCPWM_OUTPUT_PWM_SIGNAL"/>
+                        <Param id="buff_linecompl_out_source" value="CY_TCPWM_OUTPUT_INVERTED_PWM_SIGNAL"/>
                         <Param id="Compare0MatchUp" value="true"/>
                         <Param id="Compare0MatchDown" value="false"/>
                         <Param id="Compare1MatchUp" value="false"/>

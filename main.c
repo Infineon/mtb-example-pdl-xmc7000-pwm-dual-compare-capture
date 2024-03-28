@@ -13,7 +13,7 @@
 * Related Document: See README.md
 *
 *******************************************************************************
-* Copyright 2022-2023, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2022-2024, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -44,11 +44,11 @@
 * of such system or application assumes all risk of such use and in doing
 * so agrees to indemnify Cypress against all liability.
 *******************************************************************************/
-
 #include "cy_pdl.h"
 #include "cyhal.h"
 #include "cybsp.h"
 #include "cy_retarget_io.h"
+
 
 /*******************************************************************************
 * Macros
@@ -57,12 +57,14 @@
 #define COMPARE_VALUE_DELTA     (100)
 #define DELAY_BETWEEN_READ_MS   (100)
 
+
 /*******************************************************************************
 * Function Prototypes
 *******************************************************************************/
 void uart_event_handler(void *handler_arg, cyhal_uart_event_t event);
 void print_instructions(void);
 void process_key_press(char);
+
 
 /*******************************************************************************
 * Global Variables
@@ -71,6 +73,7 @@ uint32_t period; /* Variable to store period value of TCPWM block */
 int32_t compare0_value; /* Variable to store the CC0 value of TCPWM block */
 int32_t compare1_value; /* Variable to store the CC1 value of TCPWM block */
 volatile bool uart_read_flag = false;
+
 
 /*******************************************************************************
 * Function Name: main
@@ -167,6 +170,7 @@ int main(void)
     }
 }
 
+
 /*******************************************************************************
 * Function Name: uart_event_handler
 ********************************************************************************
@@ -196,6 +200,7 @@ void uart_event_handler(void *handler_arg, cyhal_uart_event_t event)
         CY_ASSERT(0);
     }
 }
+
 
 /*******************************************************************************
 * Function Name: process_key_press
@@ -277,6 +282,7 @@ void process_key_press(char key_pressed)
                                          TCPWM0_GRP1_CNT0_NUM);
 }
 
+
 /*******************************************************************************
 * Function Name: print_instructions
 ********************************************************************************
@@ -301,5 +307,6 @@ void print_instructions(void)
            "Press 'd' : To shift waveform towards right\r\n"
            "====================================================\r\n");
 }
+
 
 /* [] END OF FILE */
